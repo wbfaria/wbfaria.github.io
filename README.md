@@ -1,2 +1,1 @@
-# wbfaria.github.io
-App
+# http://wbfaria.github.io
