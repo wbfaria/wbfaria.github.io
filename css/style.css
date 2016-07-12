@@ -1,0 +1,52 @@
+body {
+            font-size: 1.6em;
+            color: #fff;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, red, blue);            
+        }
+
+        input, textarea, select, button {
+            outline: 0 !important;
+        }
+
+        .luz-apagada {
+            color: white;
+            background-color: black;
+        }
+
+        .btn {
+            border-radius: 100px;
+            height: 50px;
+            width: 50px;
+            background: #000;
+            border: 1px solid #000;
+        }
+
+        .btn:hover {
+            background: #fff;
+            border: 1px solid #fff;
+        }     
+
+        .footer{
+            position:fixed;
+            bottom:0px;
+            height:30px;
+            color: #CCC;
+            font-size: .6em;
+            text-transform: uppercase;
+        }
+
+        .font{            
+            margin-top: 20%;
+        }
+        #outerbox {
+            width:100%;
+            position:absolute;
+            bottom:0px;        
+        }
+        #innerbox {
+            width:100%;
+            position:absolute;              
+            min-height:100% !important;
+            height:auto;
+        }
