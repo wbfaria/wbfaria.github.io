@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento de Voz</title>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                <div id="outerbox">
+                    <div id="innerbox">
+                        <center>                              
+                            <label id="inputValor" class="font"></label> <br/>           
+                            <button class="btn btn-danger btn-lg bt" id="speakBtn"></button>
+                        </center>
+                    </div>                    
+                </div> 
+            </div>
+        </div>   
+
+        <div class="row">
+            <div class="col-md-4 col-xs-10 col-md-offset-4 col-xs-offset-1 footer">
+                App de reconhecimento de voz - 2016
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var speakBtn = document.querySelector('#speakBtn');
+
+            // testa se o navegador suporta o reconhecimento de voz
+            if (window.SpeechRecognition || window.webkitSpeechRecognition) {
+
+                // captura a voz
+                var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+
+                var recognition = new SpeechRecognition();
+
+                // inicia reconhecimento
+                speakBtn.addEventListener('click', function(e) {
+                    recognition.start();
+                }, false);
+
+                // resultado do reconhecimento
+                recognition.addEventListener('result', function(e) {
+                    console.log(e);
+                    var result = e.results[0][0].transcript;
+                    console.log(result);
+                    document.getElementById('inputValor').innerText = result;
+                    if (result.toLowerCase() === 'luz') {
+                        document.body.classList.toggle('luz-apagada');
+                    }
+                    // window.location.href = 'http://' + result;
+                }, false);
+            } else {
+                alert('Este navegador não suporta esta funcionalidade ainda!');
+            }
+
+        }, false);
+    </script>
+</body>
+</html>
